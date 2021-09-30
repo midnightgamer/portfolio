@@ -1,7 +1,16 @@
 import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type {AppProps} from 'next/app'
+import Layout from "../components/Layout/Layout";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+import './../styles/Component/CustomCursor.scss'
+import {GlobalProvider} from "../context/globalContext";
+
+function MyApp({Component, pageProps}: AppProps) {
+    return <GlobalProvider>
+        <Layout>
+            <Component {...pageProps} />
+        </Layout>
+    </GlobalProvider>
 }
+
 export default MyApp
