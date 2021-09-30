@@ -70,3 +70,19 @@ a {
     --yellow: #FFE454;
     --blue: #462FD8;
 }
+
+
+.pixed-links {
+    font-family: 'DisposableDroid BB Bold', sans-serif;
+    font-weight: 700;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 40px 0;
+}

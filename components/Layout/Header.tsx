@@ -16,7 +16,7 @@ const Header: React.FC<Props> = ({onCursor}: Props) => {
     const state = useGlobalStateContext();
     return (
         <header className={styles.header}>
-            <div className={styles.container}>
+            <div className={styles.wrapper}>
                 <Link href={'/'}>
                     <a onMouseEnter={() => onCursor('pointer')}
                        onMouseLeave={() => onCursor('')}
