@@ -18,7 +18,6 @@ const Home: NextPage = () => {
     const menuHover = (x: any) => {
         onCursor("locked")
         // @ts-ignore
-        console.log(x , 'x')
         dispatch({type: "SET_CURSOR", cursor: {x: x.x, y: x.y}})
         // @ts-ignore
         document.querySelector(':root').style.setProperty('--mouse-x', x.x + "px");
@@ -29,7 +28,7 @@ const Home: NextPage = () => {
     return (
         <>
             <Banner menuHover={menuHover}  onCursor={onCursor}/>
-            <About />
+            <About onCursor={onCursor}/>
         </>
     )
 }

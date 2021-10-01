@@ -4,8 +4,12 @@ import ArrowIcon from "../../assets/svg/up-arrow.svg";
 import Link from "next/link";
 import styles from '../../styles/pages/Home/About.module.scss'
 
+type Props = {
+    onCursor: (ang: string) => void
+}
 
-const About:React.FC = () => {
+
+const About = ({onCursor}: Props) => {
     return (
         <section className={`section ${styles.aboutPage}`}>
             <div className={`container ${styles.container}`}>
@@ -17,6 +21,8 @@ const About:React.FC = () => {
                         </h2>
                         <Link href={'/'}>
                             <a
+                                onMouseEnter={() => onCursor('pointer')}
+                                onMouseLeave={() => onCursor('')}
                                 className={'pixed-links'}>
                                 About me
                                 <ArrowIcon/>
