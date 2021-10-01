@@ -10,8 +10,6 @@ const Layout: React.FC = (props) => {
     const {cursorStyles} = useGlobalStateContext()
     const dispatch = useGlobalDispatchContext()
 
-    const [toggleMenu, setToggleMenu] = useState(false);
-
     const onCursor = (cursorType: string) => {
         cursorType = (cursorStyles.includes(cursorType) && cursorType) || ''
         // @ts-ignore
@@ -20,7 +18,7 @@ const Layout: React.FC = (props) => {
 
     return (
         <>
-            <CustomCursor toggleMenu={toggleMenu}/>
+            <CustomCursor/>
             <Header onCursor={onCursor}/>
             <main>
                 {props.children}

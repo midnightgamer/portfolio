@@ -5,18 +5,18 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        position: relative;
+        justify-content: center;
 
         h2 {
-            font-size: 72px;
-            font-weight: 600;
             text-align: center;
+            margin-top: 0;
         }
 
         a {
             font-size: 36px;
             display: block;
-            margin: 0 auto;
+            margin: 0 auto 76px;
             width: fit-content;
             text-transform: uppercase;
 
@@ -28,9 +28,14 @@
         ul {
             list-style: none;
             display: flex;
-            margin: 0 auto;
             padding: 0;
             width: fit-content;
+            position: absolute;
+            margin: 0 0 12px;
+            height: 24px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
 
             li {
                 &:not(:last-of-type) {
@@ -44,6 +49,7 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
+
                     svg {
                         width: 100%;
                         height: 100%;

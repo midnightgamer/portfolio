@@ -1,0 +1,33 @@
+.aboutPage {
+    .container {
+        .aboutBox {
+            display: flex;
+            padding: 100px;
+            align-items: center;
+            border: 2px solid;
+            .heading {
+                width: 50%;
+
+                h2 {
+                    svg {
+
+                    }
+                }
+
+                a {
+                    svg {
+
+                    }
+                }
+            }
+
+            .text {
+                width: 50%;
+
+                p {
+
+                }
+            }
+        }
+    }
+}

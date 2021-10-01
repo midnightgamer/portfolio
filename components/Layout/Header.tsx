@@ -7,10 +7,10 @@ type Props = {
     onCursor: (type: string) => void
 }
 const links = [
-    {label: 'Work', link: ''},
-    {label: 'About', link: ''},
-    {label: 'Resume', link: ''},
-    {label: 'Contact', link: ''},
+    {label: 'Work', link: '/'},
+    {label: 'About', link: '/'},
+    {label: 'Resume', link: '/'},
+    {label: 'Contact', link: '/'},
 ]
 const Header: React.FC<Props> = ({onCursor}: Props) => {
     const state = useGlobalStateContext();

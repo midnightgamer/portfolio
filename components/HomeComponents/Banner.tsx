@@ -9,25 +9,15 @@ import InstaIcon from '../../assets/svg/insta.svg'
 import LinkedInIcon from '../../assets/svg/LinkedIn.svg'
 import GithubIcon from '../../assets/svg/Github.svg'
 import MediumIcon from '../../assets/svg/Medium.svg'
-import {useGlobalDispatchContext} from "../../context/globalContext";
 
 type Props = {
     onCursor: (ang: string) => void
-    setHamburgerPosition: (arg0: any) => void
+    menuHover: (arg0: any) => void
 }
 
 
-const Banner: React.FC<any> = ({onCursor}: Props) => {
-    const dispatch = useGlobalDispatchContext();
-    const menuHover = (x: any) => {
-        onCursor("locked")
-        // @ts-ignore
-        dispatch({type: "SET_CURSOR", cursor: {x: x.x, y: x.y}})
-        // @ts-ignore
-        document.querySelector(':root').style.setProperty('--mouse-x', x.x + "px");
-        // @ts-ignore
-        document.querySelector(':root').style.setProperty('--mouse-y', x.y + "px");
-    }
+const Banner: React.FC<any> = ({onCursor, menuHover}: Props) => {
+
 
     const instagramRef = useRef(null)
     const instagramPosition = useElementPosition(instagramRef)

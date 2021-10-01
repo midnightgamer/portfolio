@@ -1,20 +1,25 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useRef, useState} from "react"
 //Context
 import {useGlobalStateContext} from "../context/globalContext"
+
 type Props = {
     toggleMenu: boolean
 }
 
-const CustomCursor = ({toggleMenu}: Props) => {
+const CustomCursor = () => {
     const {cursorType} = useGlobalStateContext()
     const [mousePosition, setMousePosition] = useState({
         x: 400,
         y: 400,
     })
-
-    const onMouseMove = (e: any) => {
-        const {clientX: x, clientY: y} = e
-        setMousePosition({x, y})
+    const cursor = useRef(null);
+    const onMouseMove = (event: { pageY: any; pageX: any }) => {
+        const {pageY, pageX} = event
+        console.log(pageX,pageY )
+        // @ts-ignore
+        cursor.current.style.left = `${pageX}px`;
+        // @ts-ignore
+        cursor.current.style.top = `${pageY}px`;
     }
     useEffect(() => {
         document.addEventListener("mousemove", onMouseMove)
@@ -25,6 +30,7 @@ const CustomCursor = ({toggleMenu}: Props) => {
     return (
         <>
             <div
+                ref={cursor}
                 className={`cursor ${!!cursorType ? "hovered" : ""} ${cursorType}`}
                 style={{
                     left: `${mousePosition.x}px`,
