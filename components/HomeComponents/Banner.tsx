@@ -19,18 +19,6 @@ type Props = {
 const Banner: React.FC<any> = ({onCursor, menuHover}: Props) => {
 
 
-    const instagramRef = useRef(null)
-    const instagramPosition = useElementPosition(instagramRef)
-
-    const linkedinRef = useRef(null)
-    const linkedInPosition = useElementPosition(linkedinRef)
-
-    const githubRef = useRef(null)
-    const githubPosition = useElementPosition(githubRef)
-
-    const mediumRef = useRef(null)
-    const mediumPosition = useElementPosition(mediumRef)
-
     return (
         <section className={`section ${styled.sectionBanner}`}>
             <div className={`container ${styled.container}`}>
@@ -52,36 +40,32 @@ const Banner: React.FC<any> = ({onCursor, menuHover}: Props) => {
                 <ul>
                     <li>
                         <a href="https://www.linkedin.com/in/midnightgamer/"
-                           onMouseEnter={() => menuHover(linkedInPosition)}
+                           onMouseEnter={() => onCursor('pointer')}
                            onMouseLeave={() => onCursor('')}
-                           ref={linkedinRef}
                            target={'_blank'} rel="noreferrer">
                             <LinkedInIcon/>
                         </a>
                     </li>
                     <li>
                         <a href="https://midnightgamer.medium.com/"
-                           onMouseEnter={() => menuHover(mediumPosition)}
+                           onMouseEnter={() => onCursor('pointer')}
                            onMouseLeave={() => onCursor('')}
-                           ref={mediumRef}
                            target={'_blank'} rel="noreferrer">
                             <MediumIcon/>
                         </a>
                     </li>
                     <li>
                         <a href="https://github.com/midnightgamer"
-                           onMouseEnter={() => menuHover(githubPosition)}
+                           onMouseEnter={() => onCursor('pointer')}
                            onMouseLeave={() => onCursor('')}
-                           ref={githubRef}
                            target={'_blank'} rel="noreferrer">
                             <GithubIcon/>
                         </a>
                     </li>
                     <li>
                         <a href="https://www.instagram.com/_midnightgamer/"
-                           onMouseEnter={() => menuHover(instagramPosition)}
+                           onMouseEnter={() => onCursor('pointer')}
                            onMouseLeave={() => onCursor('')}
-                           ref={instagramRef}
                            target={'_blank'} rel="noreferrer">
                             <InstaIcon/>
                         </a>

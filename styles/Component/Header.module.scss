@@ -10,8 +10,12 @@
 
         h1 {
             margin: 0;
-            font-size: 20px;
+            letter-spacing: 1px;
+            font-size: 30px;
+            font-weight: 700;
             font-family: 'ITC Avant Garde Gothic Std Book',sans-serif;
+            color: transparent!important;
+            -webkit-text-stroke: 0.2px var(--white);
         }
 
         ul {

@@ -1,0 +1,58 @@
+.workWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 100px;
+    &.revers{
+        flex-direction: row-reverse;
+        text-align: right;
+
+        .workText{
+            .line{
+                flex-direction: row-reverse;
+            }
+        }
+    }
+    .thumbnail {
+        width: 40%;
+        position: relative;
+
+        .thumbnail-image {
+            width: 100%;
+            object-fit: cover;
+            height: 200px   ;
+        }
+    }
+
+    .workText {
+        width: 50%;
+
+        h3 {
+            font-size: 50px;
+            margin: 0 0 25px;
+        }
+
+        .line {
+            display: flex;
+            align-items: center;
+
+            div {
+                width: 80%;
+                height: 2px;
+                background: var(--white);
+            }
+
+            .count {
+                font-size: 20px;
+                display: block;
+                margin: 0  20px;
+            }
+        }
+
+        p {
+            font-size: 18px;
+            margin: 25px 0 0;
+            line-height: 1.4;
+        }
+    }
+}

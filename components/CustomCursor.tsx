@@ -1,28 +1,40 @@
 import React, {useEffect, useRef, useState} from "react"
 //Context
 import {useGlobalStateContext} from "../context/globalContext"
+import {Power2, gsap} from 'gsap';
 
-type Props = {
-    toggleMenu: boolean
-}
 
-const CustomCursor = () => {
+const CustomCursor = (props: any) => {
     const {cursorType} = useGlobalStateContext()
     const [mousePosition, setMousePosition] = useState({
         x: 400,
         y: 400,
     })
     const cursor = useRef(null);
-    const onMouseMove = (event: { pageY: any; pageX: any }) => {
-        const {pageY, pageX} = event
-        console.log(pageX,pageY )
+    const onMouseMove = (event: any) => {
+
+
+        const {clientX, clientY} = event
         // @ts-ignore
-        cursor.current.style.left = `${pageX}px`;
+        const scrollVl = parseInt(window.getComputedStyle(document.documentElement).getPropertyValue('--scroll-top'), 10)
+        let val = clientY;
+        if (scrollVl) {
+            val = clientY + scrollVl;
+        }
         // @ts-ignore
-        cursor.current.style.top = `${pageY}px`;
+        gsap.to(cursor.current, {
+            duration: 0.3,
+            left: clientX,
+            top: val,
+            ease: 'linear'
+        })
+
+
     }
     useEffect(() => {
         document.addEventListener("mousemove", onMouseMove)
+
+
         return () => {
             document.removeEventListener("mousemove", onMouseMove)
         }

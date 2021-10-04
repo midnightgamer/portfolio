@@ -5,6 +5,7 @@ import {
     useGlobalStateContext
 } from "../context/globalContext";
 import About from "../components/HomeComponents/About";
+import MyWork from "../components/HomeComponents/MyWork";
 
 const Home: NextPage = () => {
     const dispatch = useGlobalDispatchContext()
@@ -27,8 +28,9 @@ const Home: NextPage = () => {
 
     return (
         <>
-            <Banner menuHover={menuHover}  onCursor={onCursor}/>
+            <Banner menuHover={menuHover} onCursor={onCursor}/>
             <About onCursor={onCursor}/>
+            <MyWork onCursor={onCursor}/>
         </>
     )
 }
