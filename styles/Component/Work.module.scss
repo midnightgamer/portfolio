@@ -5,13 +5,8 @@
     margin-bottom: 100px;
     &.revers{
         flex-direction: row-reverse;
-        text-align: right;
 
-        .workText{
-            .line{
-                flex-direction: row-reverse;
-            }
-        }
+
     }
     .thumbnail {
         width: 40%;
@@ -38,7 +33,8 @@
 
             div {
                 width: 80%;
-                height: 2px;
+                height: 3px;
+                border-radius: 50px;
                 background: var(--white);
             }
 

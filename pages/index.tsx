@@ -6,6 +6,7 @@ import {
 } from "../context/globalContext";
 import About from "../components/HomeComponents/About";
 import MyWork from "../components/HomeComponents/MyWork";
+import Footer from "../components/HomeComponents/Footer";
 
 const Home: NextPage = () => {
     const dispatch = useGlobalDispatchContext()
@@ -31,6 +32,7 @@ const Home: NextPage = () => {
             <Banner menuHover={menuHover} onCursor={onCursor}/>
             <About onCursor={onCursor}/>
             <MyWork onCursor={onCursor}/>
+            <Footer onCursor={onCursor}/>
         </>
     )
 }

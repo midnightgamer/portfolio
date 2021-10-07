@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
+    "axios": "^0.22.0",
     "gsap": "^3.8.0",
     "locomotive-scroll": "^4.1.2",
     "next": "11.1.2",

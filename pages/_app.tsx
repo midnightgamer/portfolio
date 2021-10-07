@@ -5,10 +5,12 @@ import CustomCursor from "../components/CustomCursor";
 import './../styles/Component/CustomCursor.scss'
 import {GlobalProvider} from "../context/globalContext";
 import {useEffect, useState} from "react";
+import {useRouter} from "next/router";
 
 function MyApp({Component, pageProps}: AppProps) {
-    const [windowsScroll, setWindowsScroll] = useState(0);
-    useEffect(() => {
+
+
+    /*useEffect(() => {
         let scroll: any;
         // @ts-ignore
         import("locomotive-scroll").then((locomotiveModule) => {
@@ -30,15 +32,17 @@ function MyApp({Component, pageProps}: AppProps) {
         // `useEffect`'s cleanup phase
         return () => scroll.destroy();
     }, []);
-
-    return <div id="js-trigger">
-        <GlobalProvider>
-            <CustomCursor />
-            <Layout >
+*/
+    return <GlobalProvider>
+        <CustomCursor/>
+        <main data-scroll-container>
+            <Layout>
                 <Component {...pageProps} />
             </Layout>
-        </GlobalProvider>
-    </div>
+        </main>
+        <span className="c-scrollbar"/>
+    </GlobalProvider>
+
 }
 
 export default MyApp

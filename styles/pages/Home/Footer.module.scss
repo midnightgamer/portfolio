@@ -1,0 +1,62 @@
+.sectionFooter {
+    .container {
+        display: flex;
+        padding: 0 100px;
+
+        div {
+            width: 50%;
+        }
+
+        h2 {
+            margin: 0 0 20px;
+            line-height: 1;
+        }
+
+        span {
+            display: block;
+        }
+
+        a {
+            font-size: 30px;
+            margin: 5px 0 30px;
+            display: block;
+            text-decoration: underline;
+
+            .svg {
+                margin: 0 0 0 10px;
+
+                path {
+                    fill: #462FD8;
+                }
+            }
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+
+            li {
+                &:not(:last-of-type) {
+                    margin: 0 50px 0 0;
+                }
+
+                a {
+                    position: relative;
+                    height: 24px;
+                    width: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    svg {
+                        width: 100%;
+                        height: 100%;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+}

@@ -11,6 +11,28 @@
         h2 {
             text-align: center;
             margin-top: 0;
+
+            .line {
+                display: block;
+                overflow: hidden;
+                height: 88px;
+                width: fit-content;
+                margin: 0 auto 10px;
+                position: relative;
+                .inner {
+                    display: inline-block;
+                }
+            }
+            .blackRevel{
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                pointer-events: none;
+                z-index: 10!important;
+            }
         }
 
         a {

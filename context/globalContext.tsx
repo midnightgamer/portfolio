@@ -5,10 +5,12 @@ import {any} from 'prop-types'
 const defaultState = {
     cursorType: "",
     cursorStyles: [],
+    loading: false,
     cursor: {}
 }
 type ContextType = {
     cursorType: string,
+    loading: boolean
     cursorStyles: Array<String>
     cursor: any
 }
@@ -16,10 +18,10 @@ type ContextType = {
 
 //Define Context
 const GlobalStateContext = createContext<ContextType>(defaultState)
-const GlobalDispatchContext = createContext(undefined)
+const GlobalDispatchContext = createContext<any>(null)
 
 //Reducer
-const globalReducer = (state: any, action: { type: any; cursorType: any, cursor: any }) => {
+const globalReducer = (state: any, action: { type: any; cursorType: any, cursor: any, loading: boolean }) => {
     switch (action.type) {
         case "CURSOR_TYPE": {
             return {
@@ -32,6 +34,13 @@ const globalReducer = (state: any, action: { type: any; cursorType: any, cursor:
             return {
                 ...state,
                 cursor: action.cursor
+            }
+
+        }
+        case "SET_LOADING": {
+            return {
+                ...state,
+                loading: action.loading
             }
 
         }
@@ -49,6 +58,7 @@ type Props = {
 export const GlobalProvider = ({children}: Props) => {
     const [state, dispatch] = useReducer(globalReducer, {
         cursorType: false,
+        loading: false,
         cursorStyles: ["pointer", "hovered", "locked"],
         cursor: {}
     })

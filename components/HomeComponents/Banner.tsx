@@ -1,14 +1,9 @@
 import Link from 'next/link';
-import React, {createRef, useRef} from 'react';
+import React, {useEffect} from 'react';
 import styled from './../../styles/pages/Home/Banner.module.scss'
-
-import useElementPosition from "../../hooks/useElementPosition"
-
 import ArrowIcon from "../../assets/svg/up-arrow.svg";
-import InstaIcon from '../../assets/svg/insta.svg'
-import LinkedInIcon from '../../assets/svg/LinkedIn.svg'
-import GithubIcon from '../../assets/svg/Github.svg'
-import MediumIcon from '../../assets/svg/Medium.svg'
+import SocialLinks from "../UI/SocialLinks";
+import {gsap, Expo} from "gsap";
 
 type Props = {
     onCursor: (ang: string) => void
@@ -16,16 +11,54 @@ type Props = {
 }
 
 
-const Banner: React.FC<any> = ({onCursor, menuHover}: Props) => {
+const Banner: React.FC<any> = ({onCursor}: Props) => {
+    useEffect(() => {
+        const tl = gsap.timeline({defaults: {ease: Expo.easeOut}})
+        const inners = gsap.utils.toArray(`.${styled.inner}`)
+        const lines = gsap.utils.toArray(`.${styled.blackRevel}`)
 
+        /*.fromTo(lines, {transform: 'scale(1,1)'}, {
+               background: '#fff',
+               transformOrigin: '100% 50%',
+               opacity: 1,
+               transform: 'scale(0,1)',
+               duration: 1,
+               ease: 'linear',
+               stagger: 0.2,
+               delay: 0.8
+           })*/
+
+        tl
+            .fromTo(inners, {y: '150%'}, {
+                y: 0,
+                stagger: 0.4,
+                duration: 1,
+            })
+            .fromTo('.pixed-links', {
+                y: '30px',
+                opacity: 0,
+
+            }, {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+            })
+
+    }, []);
 
     return (
         <section className={`section ${styled.sectionBanner}`}>
             <div className={`container ${styled.container}`}>
                 <div>
                     <h2>
-                        Hi, I am a front-end developer<br/> based in Mumbai,
-                        India.
+                        <span className={styled.line}>
+                            <span className={styled.blackRevel}/>
+                            <span className={styled.inner}>Hi, I am a front-end developer</span>
+                        </span>
+                        <span className={styled.line}>
+                            <span className={styled.blackRevel}/>
+                            <span className={styled.inner}>based in Mumbai, India.</span>
+                        </span>
                     </h2>
                     <Link href={'/'}>
                         <a
@@ -37,40 +70,7 @@ const Banner: React.FC<any> = ({onCursor, menuHover}: Props) => {
                         </a>
                     </Link>
                 </div>
-                <ul>
-                    <li>
-                        <a href="https://www.linkedin.com/in/midnightgamer/"
-                           onMouseEnter={() => onCursor('pointer')}
-                           onMouseLeave={() => onCursor('')}
-                           target={'_blank'} rel="noreferrer">
-                            <LinkedInIcon/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://midnightgamer.medium.com/"
-                           onMouseEnter={() => onCursor('pointer')}
-                           onMouseLeave={() => onCursor('')}
-                           target={'_blank'} rel="noreferrer">
-                            <MediumIcon/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/midnightgamer"
-                           onMouseEnter={() => onCursor('pointer')}
-                           onMouseLeave={() => onCursor('')}
-                           target={'_blank'} rel="noreferrer">
-                            <GithubIcon/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/_midnightgamer/"
-                           onMouseEnter={() => onCursor('pointer')}
-                           onMouseLeave={() => onCursor('')}
-                           target={'_blank'} rel="noreferrer">
-                            <InstaIcon/>
-                        </a>
-                    </li>
-                </ul>
+                <SocialLinks onCursor={onCursor}/>
             </div>
         </section>
     );
